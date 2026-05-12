@@ -57,8 +57,8 @@ def login():
         # === FIX for Flaw 5 ===
         # Exclude the password field from all logs.
         # log_line = (
-        #     f"{datetime.now().isoformat()} login_attempt"
-        #     f"user={username}"
+        #     f"{datetime.now().isoformat()} login_attempt "
+        #     f"user={username} "
         #     f"ip={request.remote_addr}\n"
         # )
         os.makedirs(os.path.dirname(LOG_PATH), exist_ok=True)
@@ -126,7 +126,7 @@ def save_notes(notes):
         pickle.dump(notes, f)
     # === FIX for Flaw 2 ===
     # with open(NOTES_PATH, "w") as f:
-    #     return json.dump(f)
+    #     json.dump(notes, f)
 
 # === Flaw 3: A01 Broken Access Control ===
 # Admin routes have no auth check and are even shown in /robots.txt!
