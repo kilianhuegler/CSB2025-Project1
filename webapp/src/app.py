@@ -22,7 +22,9 @@ LOG_PATH = "/var/lib/devnotes/access.log"
 ADMIN_PASSWORD_HASH = "240be518fabd2724ddb6f04eeb1da5967448d7e831c08c8fa822809f74c720a9"
 # === FIX for Flaw 4 ===
 # Use bcrypt for salted password hashing and load the hash from env.
+# In Prod this would be loaded from env (see comment below) but for the demo it is a literal.
 # ADMIN_PASSWORD_HASH = os.environ["ADMIN_PASSWORD_HASH"].encode()
+# ADMIN_PASSWORD_HASH = b"$2b$12$fKsaEcUVxFkolFXEFIP/QeIyemVzLOEkK7s6dimJTqoV2E8FfG51W"
 
 def require_login(view_func):
     @wraps(view_func)
