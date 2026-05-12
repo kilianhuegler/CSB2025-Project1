@@ -39,3 +39,12 @@ To stop and remove the container:
 ```bash
 docker compose down
 ```
+
+## Default Credentials
+
+username: admin
+password: admin123
+
+## Screenshots
+
+The `screenshots/` folder contains before/after png files for each flaw.
