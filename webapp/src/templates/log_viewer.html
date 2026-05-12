@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Log Viewer</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container wide">
+        <h1>Access log</h1>
+        <p class="muted">/admin/log_viewer</p>
+
+        {% if message %}
+            <div class="message">{{ message }}</div>
+        {% endif %}
+
+        <div class="log-box">
+            {% if logs %}
+                {% for line in logs %}
+                    <div class="log-line">{{ line }}</div>
+                {% endfor %}
+            {% else %}
+                <p class="muted">No log entries.</p>
+            {% endif %}
+        </div>
+    </div>
+</body>
+</html>

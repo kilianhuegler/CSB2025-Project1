@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container wide">
+        <div class="topbar">
+            <h1>Notes</h1>
+            <div class="user-info">
+                Signed in as <strong>{{ user }}</strong>
+                &middot; <a href="{{ url_for('logout') }}">Sign out</a>
+            </div>
+        </div>
+
+        <h2>New note</h2>
+        <form method="POST">
+            <input type="text" name="title" placeholder="Title" required>
+            <textarea name="body" placeholder="Body" rows="4" required></textarea>
+            <button type="submit">Save note</button>
+        </form>
+
+        <h2>Notes ({{ notes|length }})</h2>
+        {% if notes %}
+            <ul class="notes-list">
+                {% for n in notes %}
+                    <li class="note">
+                        <div class="note-title">{{ n.title }}</div>
+                        <div class="note-meta">by {{ n.author }} on {{ n.created }}</div>
+                        <pre class="note-body">{{ n.body }}</pre>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p class="muted">No notes yet.</p>
+        {% endif %}
+    </div>
+</body>
+</html>

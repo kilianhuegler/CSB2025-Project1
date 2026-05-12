@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Notes</h1>
+        <p class="subtitle">Internal team notes</p>
+
+        <form method="POST">
+            <input type="text" name="username" placeholder="Username" autocomplete="off" required>
+            <input type="password" name="password" placeholder="Password" autocomplete="off" required>
+            <button type="submit">Sign in</button>
+        </form>
+
+        {% if message %}
+            <div class="message">{{ message }}</div>
+        {% endif %}
+
+        <div class="footer">Internal use only</div>
+    </div>
+</body>
+</html>
